@@ -2,5 +2,11 @@ package registry
 
 type Registration struct {
 	ServiceName ServiceName
-	ServiceURL string
+	ServiceURL  string
 }
+
+type ServiceName string
+
+const (
+	LogService = ServiceName("LogService")
+)
