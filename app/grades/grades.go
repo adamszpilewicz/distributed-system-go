@@ -1,6 +1,9 @@
 package grades
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 const (
 	GradeTest     = GradeType("Test")
@@ -25,7 +28,10 @@ type Student struct {
 
 type Students []Student
 
-var students Students
+var (
+	students      Students
+	studentsMutex sync.Mutex
+)
 
 func (s Students) GetById(ID int) (*Student, error) {
 	for _, obj := range students {
