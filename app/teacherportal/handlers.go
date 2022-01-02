@@ -101,7 +101,8 @@ func (sh studentsHandler) renderStudent(w http.ResponseWriter, r *http.Request, 
 
 }
 
-func (sh studentsHandler) renderGrades(w http.ResponseWriter, r *http.Request, id int) {
+func (studentsHandler) renderGrades(w http.ResponseWriter, r *http.Request, id int) {
+
 	if r.Method != http.MethodPost {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		return
@@ -114,7 +115,8 @@ func (sh studentsHandler) renderGrades(w http.ResponseWriter, r *http.Request, i
 	gradeType := r.FormValue("Type")
 	score, err := strconv.ParseFloat(r.FormValue("Score"), 32)
 	if err != nil {
-		log.Println("failed to parse score: ", err)
+		log.Println("Failed to parse score: ", err)
+		return
 	}
 	g := grades.Grade{
 		Title: title,
@@ -123,26 +125,73 @@ func (sh studentsHandler) renderGrades(w http.ResponseWriter, r *http.Request, i
 	}
 	data, err := json.Marshal(g)
 	if err != nil {
-		log.Println("failed to convert grade to JSON", g, err)
-		return
+		log.Println("Failed to convert grade to JSON: ", g, err)
 	}
+
 	serviceURL, err := registry.GetProvider(registry.GradingService)
 	if err != nil {
-		log.Println("failed to receive instance og Grading Service", err)
+		log.Println("Failed to retrieve instance of Grading Service", err)
 		return
 	}
-	res, err := http.Post(fmt.Sprintf("%v/students/%v/grades", serviceURL),
-		"application/json", bytes.NewBuffer(data))
+	res, err := http.Post(fmt.Sprintf("%v/students/%v/grades", serviceURL, id), "application/json", bytes.NewBuffer(data))
+	log.Println("response from post: ", res)
+	log.Println(bytes.NewBuffer(data))
 	if err != nil {
-		log.Println("Failed to save grade to Garding System", err)
+		log.Println("Failed to save grade to Grading Service", err)
 		return
 	}
 	if res.StatusCode != http.StatusCreated {
-		log.Println("failed to save grade to Grading System, Status: ",
-			res.StatusCode)
+		log.Println("Failed to save grade to Grading Service. Status: ", res.StatusCode)
 		return
 	}
 }
+
+//
+//func (sh studentsHandler) renderGrades(w http.ResponseWriter, r *http.Request, id int) {
+//	if r.Method != http.MethodPost {
+//		w.WriteHeader(http.StatusMethodNotAllowed)
+//		return
+//	}
+//	defer func() {
+//		w.Header().Add("location", fmt.Sprintf("/students/%v", id))
+//		w.WriteHeader(http.StatusTemporaryRedirect)
+//	}()
+//	title := r.FormValue("Title")
+//	gradeType := r.FormValue("Type")
+//	score, err := strconv.ParseFloat(r.FormValue("Score"), 32)
+//	if err != nil {
+//		log.Println("failed to parse score: ", err)
+//	}
+//	g := grades.Grade{
+//		Title: title,
+//		Type:  grades.GradeType(gradeType),
+//		Score: float32(score),
+//	}
+//	log.Println("marshalling data")
+//	data, err := json.Marshal(g)
+//	if err != nil {
+//		log.Println("failed to convert grade to JSON", g, err)
+//		return
+//	}
+//
+//	log.Println("printing marshalled data: ", data)
+//	serviceURL, err := registry.GetProvider(registry.GradingService)
+//	if err != nil {
+//		log.Println("failed to receive instance og Grading Service", err)
+//		return
+//	}
+//	res, err := http.Post(fmt.Sprintf("%v/students/%v/grades", serviceURL, id),
+//		"application/json", bytes.NewBuffer(data))
+//	if err != nil {
+//		log.Println("Failed to save grade to Garding System", err)
+//		return
+//	}
+//	if res.StatusCode != http.StatusCreated {
+//		log.Println("failed to save grade to Grading System, Status: ",
+//			res.StatusCode)
+//		return
+//	}
+//}
 
 func RegisterHandlers() {
 	log.Println("registering handlers")

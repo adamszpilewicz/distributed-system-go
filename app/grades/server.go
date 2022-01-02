@@ -78,11 +78,13 @@ func (sh studentsHandler) addGrade(w http.ResponseWriter, r *http.Request, id in
 	studentsMutex.Lock()
 	defer studentsMutex.Unlock()
 
-	student, err := students.GetById(id)
+	student, err := students.GetByID(id)
 	if err != nil {
-		w.WriteHeader(http.StatusNotFound)
-		log.Println(err)
-		return
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			log.Println(err)
+			return
+		}
 	}
 
 	var g Grade
@@ -93,7 +95,6 @@ func (sh studentsHandler) addGrade(w http.ResponseWriter, r *http.Request, id in
 		log.Println(err)
 		return
 	}
-
 	student.Grades = append(student.Grades, g)
 
 	w.WriteHeader(http.StatusCreated)
@@ -104,6 +105,39 @@ func (sh studentsHandler) addGrade(w http.ResponseWriter, r *http.Request, id in
 	w.Header().Add("content-type", "application/json")
 	w.Write(data)
 }
+
+//
+//func (sh studentsHandler) addGrade(w http.ResponseWriter, r *http.Request, id int) {
+//	studentsMutex.Lock()
+//	defer studentsMutex.Unlock()
+//
+//	student, err := students.GetById(id)
+//	if err != nil {
+//		w.WriteHeader(http.StatusNotFound)
+//		log.Println(err)
+//		return
+//	}
+//
+//	var g Grade
+//	dec := json.NewDecoder(r.Body)
+//	err = dec.Decode(&g)
+//	if err != nil {
+//		w.WriteHeader(http.StatusBadRequest)
+//		log.Println(err)
+//		return
+//	}
+//
+//	student.Grades = append(student.Grades, g)
+//
+//	log.Println("added grade from post in grading system: ", student.Grades)
+//	w.WriteHeader(http.StatusCreated)
+//	data, err := sh.toJSON(g)
+//	if err != nil {
+//		log.Println(err)
+//	}
+//	w.Header().Add("content-type", "application/json")
+//	w.Write(data)
+//}
 
 func (sh studentsHandler) toJSON(obj interface{}) ([]byte, error) {
 	var b bytes.Buffer

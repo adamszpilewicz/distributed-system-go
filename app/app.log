@@ -3289,3 +3289,163 @@ created by net/http.(*Server).Serve
  
 2022/01/02 14:02:21 [TeacherPortal] - len of pathSegments:  2
  
+2022/01/02 15:57:17 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 15:57:17 [TeacherPortal] - Failed to save grade to Garding System parse "http://localhost:6000/students/%!v(MISSING)/grades": invalid URL escape "%!v"
+ 
+2022/01/02 15:57:17 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 15:57:17 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 15:57:22 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 15:57:22 [TeacherPortal] - Failed to save grade to Garding System parse "http://localhost:6000/students/%!v(MISSING)/grades": invalid URL escape "%!v"
+ 
+2022/01/02 15:57:22 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 15:57:22 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 15:57:57 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 15:59:38 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 15:59:40 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 15:59:41 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 15:59:41 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 15:59:42 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 15:59:46 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 15:59:46 [TeacherPortal] - Failed to save grade to Garding System parse "http://localhost:6000/students/%!v(MISSING)/grades": invalid URL escape "%!v"
+ 
+2022/01/02 15:59:46 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 15:59:46 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:01:51 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:01:51 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:01:53 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:01:59 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:02:01 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:02:01 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:02:03 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:02:03 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:02:13 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 16:02:13 [TeacherPortal] - marshalling data
+ 
+2022/01/02 16:02:13 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:02:13 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:05:20 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 16:05:20 [TeacherPortal] - marshalling data
+ 
+2022/01/02 16:05:20 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:05:20 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:11:01 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:11:01 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:11:03 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:11:03 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:11:08 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 16:11:08 [TeacherPortal] - marshalling data
+ 
+2022/01/02 16:11:08 [TeacherPortal] - printing marshalled data:  [123 34 84 105 116 108 101 34 58 34 97 115 97 34 44 34 84 121 112 101 34 58 34 84 101 115 116 34 44 34 83 99 111 114 101 34 58 49 51 125]
+ 
+2022/01/02 16:11:08 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:11:08 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:11:20 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:11:20 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:11:21 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:11:21 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:11:24 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 16:11:24 [TeacherPortal] - marshalling data
+ 
+2022/01/02 16:11:24 [TeacherPortal] - printing marshalled data:  [123 34 84 105 116 108 101 34 58 34 115 97 115 97 34 44 34 84 121 112 101 34 58 34 84 101 115 116 34 44 34 83 99 111 114 101 34 58 50 51 125]
+ 
+2022/01/02 16:11:24 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:11:25 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:00 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:12:00 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:02 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:02 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:04 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:12:04 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:07 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 16:12:07 [TeacherPortal] - marshalling data
+ 
+2022/01/02 16:12:07 [TeacherPortal] - printing marshalled data:  [123 34 84 105 116 108 101 34 58 34 97 115 97 115 34 44 34 84 121 112 101 34 58 34 84 101 115 116 34 44 34 83 99 111 114 101 34 58 49 125]
+ 
+2022/01/02 16:12:07 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:12:07 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:24 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:24 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:26 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:12:26 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:35 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 16:12:35 [TeacherPortal] - marshalling data
+ 
+2022/01/02 16:12:35 [TeacherPortal] - printing marshalled data:  [123 34 84 105 116 108 101 34 58 34 97 115 97 115 34 44 34 84 121 112 101 34 58 34 84 101 115 116 34 44 34 83 99 111 114 101 34 58 50 51 125]
+ 
+2022/01/02 16:12:35 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:12:35 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:12:39 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 16:14:07 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:14:08 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:14:09 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:14:09 [TeacherPortal] - len of pathSegments:  2
+ 
+2022/01/02 16:14:12 [TeacherPortal] - len of pathSegments:  4
+ 
+2022/01/02 16:14:12 [TeacherPortal] - len of pathSegments:  3
+ 
+2022/01/02 16:14:12 [TeacherPortal] - len of pathSegments:  2
+ 
