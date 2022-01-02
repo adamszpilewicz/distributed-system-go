@@ -25,7 +25,7 @@ func (r *registry) add(reg Registration) error {
 	err := r.sendRequiredServices(reg)
 	r.notify(patch{
 		Added: []patchEntry{
-			patchEntry{Name: reg.ServiceName, URL: reg.ServiceURL},
+			{Name: reg.ServiceName, URL: reg.ServiceURL},
 		},
 	})
 	if err != nil {
@@ -36,13 +36,19 @@ func (r *registry) add(reg Registration) error {
 }
 
 func (r *registry) remove(url string) error {
-	for i, obj := range r.registrations {
-		if string(obj.ServiceName) == url {
+	for i, reg := range r.registrations {
+		if reg.ServiceURL == url {
+			log.Println("notifying about removal", reg.ServiceName, reg.ServiceURL)
+			r.notify(patch{
+				Removed: []patchEntry{
+					{Name: reg.ServiceName, URL: reg.ServiceURL},
+				},
+			})
 			r.mutex.Lock()
 			r.registrations = append(r.registrations[:i], r.registrations[i+1:]...)
 			r.mutex.Unlock()
-			return nil
 		}
+		return nil
 	}
 	return fmt.Errorf("service at url %v not found", url)
 }
@@ -105,6 +111,7 @@ func (r *registry) notify(fullPatch patch) {
 						sendUpdate = true
 					}
 				}
+
 				if sendUpdate {
 					err := r.sendPatch(p, reg.ServiceUpdateURL)
 					if err != nil {
@@ -155,7 +162,7 @@ func (s RegistryService) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		}
 		url := string(payload)
 		fmt.Printf("removing service with url %v", url)
-		reg.remove(url)
+		err = reg.remove(url)
 		if err != nil {
 			log.Println("err")
 			w.WriteHeader(http.StatusInternalServerError)
